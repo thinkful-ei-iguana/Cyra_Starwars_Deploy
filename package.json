@@ -44,5 +44,16 @@
     "supertest": "^4.0.2"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-ei-iguana/Cyra_React_Boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thinkful-ei-iguana/Cyra_React_Boilerplate/issues"
+  },
+  "homepage": "https://github.com/thinkful-ei-iguana/Cyra_React_Boilerplate#readme"
 }

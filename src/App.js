@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import context from './Context.js'
+import CharacterList from './CharacterList.js'
+import SearchForm from './SearchForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  static contextType = context;
+
+  state = {
+    name: '',
+    characters: []
+  }
+
+  changeName = (input) =>{
+    this.setState({
+      name: input,
+      characters: this.state.characters
+    });
+  }
+
+  handleChangeCharacters= (input) =>{
+    this.setState({
+      name: this.state.name,
+      characters: input
+    });
+  }
+
+  
+
+  render() {
+    const value = {
+      name : this.state.name,
+      characters: this.state.characters,
+      changeName: this.changeName,
+      changeCharacters: this.handleChangeCharacters
+    }
+    return (
+      <context.Provider value={value}>
+        <div className="App">
+          <SearchForm />
+          <CharacterList />
+        </div>
+      </context.Provider>
+    )
+  }
 }
 
 export default App;
